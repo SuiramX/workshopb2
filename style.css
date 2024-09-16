@@ -1,11 +1,23 @@
-/* Add a black background color to the top navigation */
-.topnav {
+/* Styles communs à toutes les pages */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+h1, h2, p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Styles de la navigation */
+.navbar .topnav {
   background-color: #333;
   overflow: hidden;
 }
 
-/* Style the links inside the navigation bar */
-.topnav a {
+.navbar .topnav a {
   float: left;
   color: #f2f2f2;
   text-align: center;
@@ -14,63 +26,183 @@
   font-size: 17px;
 }
 
-/* Change the color of links on hover */
-.topnav a:hover {
+.navbar .topnav a:hover {
   background-color: #ddd;
   color: black;
 }
 
-/* Add a color to the active/current link */
-.topnav a.active {
+.navbar .topnav a.active {
   background-color: #04AA6D;
   color: white;
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow: hidden;
-}
-
-.video-container {
+/* Styles spécifiques à index.html */
+.image-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh; /* Hauteur de la fenêtre d'affichage */
   overflow: hidden;
 }
 
-.background-video {
+/* Modification de l'image de fond pour qu'elle soit responsive et ne soit pas rognée */
+.background-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
-  transform: translate(-50%, -50%);
-  min-width: 100%;
-  min-height: 100%;
+  height: 100%;
+  object-fit: contain; /* Assure que l'image garde ses proportions et n'est pas rognée */
+  object-position: center; /* Centre l'image dans le conteneur */
+  z-index: 1;
+  background-color: black; /* Ajout d'un fond noir pour les barres latérales si l'image ne couvre pas tout l'écran */
 }
+
 
 .content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
-  color: white;
+  z-index: 2;
+  color: rgb(4, 170, 109);
+  background-color: #ffffff72;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 3em;
+  margin-bottom: 20px;
+}
+
+.content p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
 }
 
 .btn {
-  display: block;
-  margin: 10px;
+  display: inline-block;
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
 }
 
 .btn:hover {
   background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Section "About" */
+.about-section {
+  padding: 50px;
+  background-color: #f4f4f4;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.about-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.about-section p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Footer */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+/* Styles spécifiques à play.html */
+/* Conteneur vidéo responsive */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* Pour une vidéo en format 16:9, qui est le format le plus courant */
+  overflow: hidden;
+  background-color: black; /* Pour ajouter un fond noir si la vidéo ne se charge pas */
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Pour que la vidéo couvre tout l'écran sans être étirée */
+}
+
+
+.content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+#choices {
+  display: none; /* Par défaut, les choix sont cachés */
+  position: absolute;
+  bottom: 20%; /* Positionner les choix par-dessus la vidéo */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.5); /* Arrière-plan semi-transparent pour s'harmoniser avec la vidéo */
+  padding: 20px;
+  border-radius: 10px; /* Coins arrondis pour un effet plus esthétique */
+  z-index: 10; /* Assurer que les boutons sont au-dessus de la vidéo */
+  text-align: center;
+}
+
+#choices .btn {
+  margin: 10px;
+  padding: 10px 20px;
+  color: white;
+  background-color: #04AA6D; /* La couleur du bouton */
+  border: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#choices .btn:hover {
+  background-color: #03a060;
+}
+@media (max-width: 600px) {
+  #choices {
+    bottom: 10%; /* Abaisser les boutons pour qu'ils apparaissent plus bas sur des petits écrans */
+    padding: 10px; /* Réduire le padding pour un rendu plus compact sur mobile */
+  }
+
+  #choices .btn {
+    padding: 8px 16px; /* Réduire la taille des boutons sur mobile */
+    font-size: 0.9em;  /* Ajuster la taille de la police pour les petits écrans */
+  }
 }
