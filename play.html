@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -11,63 +11,62 @@
 
 <body>
     <!-- Bouton ON/OFF avant de lancer la vidéo -->
-    <div class="onoffswitch" id="onOffSwitchContainer">
+    <div class="onoffswitch" id="onOffSwitchContainer" role="switch" aria-checked="false" aria-labelledby="toggleSwitchLabel">
         <label class="switch">
             <input type="checkbox" id="toggleSwitch">
             <span class="slider"></span>
-            <span class="text on">On</span>
-            <span class="text off">Off</span>
+            <span class="text on" id="toggleSwitchLabel">On</span>
+            <span class="text off" id="toggleSwitchLabel">Off</span>
         </label>
     </div>
 
     <!-- Conteneur vidéo, caché par défaut -->
     <div class="video-container" id="videoContainer" style="display: none;">
-        <video id="mainVideo" class="background-video" muted controls>
+        <video id="mainVideo" class="background-video" muted controls aria-labelledby="videoTitle">
             <source src="videos/reveil.mp4" type="video/mp4">
-            Votre navigateur ne supporte pas la balise vidéo.
+            <track src="subtitles/reveil-fr.vtt" kind="subtitles" srclang="fr" label="Français">
+            <p id="videoTitle">Votre navigateur ne supporte pas la balise vidéo.</p>
         </video>
     </div>
 
     <!-- Contenu des choix (invisible au début) -->
     <div class="choices" id="choices1" style="display: none;">
-        <button class="btn" onclick="makeChoice('velo')">Prendre le vélo</button>
-        <button class="btn" onclick="makeChoice('pied')">Aller directement à pied</button>
+        <button class="btn" onclick="makeChoice('velo')" aria-label="Choisir de prendre le vélo">Prendre le vélo</button>
+        <button class="btn" onclick="makeChoice('pied')" aria-label="Choisir d'aller directement à pied">Aller directement à pied</button>
     </div>
     <div class="choices" id="choices2" style="display: none;">
-        <button class="btn" onclick="makeChoice('babyfoot')">Faire du babyfoot</button>
-        <button class="btn" onclick="makeChoice('cafe')">Aller prendre un café</button>
-        <button class="btn" onclick="makeChoice('cours')">Aller directement en cours</button>
+        <button class="btn" onclick="makeChoice('babyfoot')" aria-label="Choisir de faire du babyfoot">Faire du babyfoot</button>
+        <button class="btn" onclick="makeChoice('cafe')" aria-label="Choisir d'aller prendre un café">Aller prendre un café</button>
+        <button class="btn" onclick="makeChoice('cours')" aria-label="Choisir d'aller directement en cours">Aller directement en cours</button>
     </div>
     <div class="choices" id="choices3" style="display: none;">
-        <button class="btn" onclick="makeChoice('blender')">Ouvrir le logiciel Blender</button>
-        <button class="btn" onclick="makeChoice('vscode')">Ouvrir le logiciel VsCode</button>
+        <button class="btn" onclick="makeChoice('blender')" aria-label="Choisir d'ouvrir le logiciel Blender">Ouvrir le logiciel Blender</button>
+        <button class="btn" onclick="makeChoice('vscode')" aria-label="Choisir d'ouvrir le logiciel VsCode">Ouvrir le logiciel VsCode</button>
     </div>
     <div class="choices" id="choices4" style="display: none;">
-        <button class="btn" onclick="makeChoice('yanshee')">Jouer avec le robot Yanshee</button>
-        <button class="btn" onclick="makeChoice('rvr')">Jouer avec le robot RVR+</button>
+        <button class="btn" onclick="makeChoice('yanshee')" aria-label="Choisir de jouer avec le robot Yanshee">Jouer avec le robot Yanshee</button>
+        <button class="btn" onclick="makeChoice('rvr')" aria-label="Choisir de jouer avec le robot RVR+">Jouer avec le robot RVR+</button>
     </div>
     <div class="choices" id="choices5" style="display: none;">
-        <button class="btn" onclick="makeChoice('sandwich')">Manger un sandwich</button>
-        <button class="btn" onclick="makeChoice('doggy')">Manger son repas d'hier</button>
+        <button class="btn" onclick="makeChoice('sandwich')" aria-label="Choisir de manger un sandwich">Manger un sandwich</button>
+        <button class="btn" onclick="makeChoice('doggy')" aria-label="Choisir de manger son repas d'hier">Manger son repas d'hier</button>
     </div> 
     <div class="choices" id="choices6" style="display: none;">
-        <button class="btn" onclick="makeChoice('amixem')">Regarder Amixem</button>
-        <button class="btn" onclick="makeChoice('mk')">Regarder un speedrun de Mario Kart</button>
+        <button class="btn" onclick="makeChoice('amixem')" aria-label="Choisir de regarder Amixem">Regarder Amixem</button>
+        <button class="btn" onclick="makeChoice('mk')" aria-label="Choisir de regarder un speedrun de Mario Kart">Regarder un speedrun de Mario Kart</button>
     </div> 
     <div class="choices" id="choices7" style="display: none;">
-        <button class="btn" onclick="makeChoice('eco')">Suivre le cours d'économie</button>
-        <button class="btn" onclick="makeChoice('math')">Suivre le cours de math</button>
+        <button class="btn" onclick="makeChoice('eco')" aria-label="Choisir de suivre le cours d'économie">Suivre le cours d'économie</button>
+        <button class="btn" onclick="makeChoice('math')" aria-label="Choisir de suivre le cours de math">Suivre le cours de math</button>
     </div> 
 
     <!-- Affiche le bouton back en permanence -->
     <div class="back">
-        <button onclick="window.location.href='index.html'">
+        <button onclick="window.location.href='index.html'" aria-label="Retour à la page d'accueil">
             <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024">
-                <path
-                    d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z">
-                </path>
+                <path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path>
             </svg>
-            <span>Back</span>
+            <span class="sr-only">Retour</span>
         </button>
     </div>
 
@@ -103,7 +102,7 @@
         });
 
         // Afficher les choix quand la vidéo se termine
-        video.addEventListener('ended', (event) => {
+        video.addEventListener('ended', () => {
             choicesDiv1.style.display = "block"; // Afficher les boutons de choix 1 après la première vidéo
         });
 
