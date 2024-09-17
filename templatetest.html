@@ -5,20 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="bouton.css">
     <title>Journée d'un étudiant - Play</title>
 </head>
 
 <body>
-    <!-- Conteneur vidéo -->
-    <div class="video-container">
-        <video id="mainVideo" class="background-video" autoplay muted controls>
+    <!-- Bouton ON/OFF avant de lancer la vidéo -->
+    <div class="onoffswitch" id="onOffSwitchContainer">
+        <label class="switch">
+            <input type="checkbox" id="toggleSwitch">
+            <span class="slider"></span>
+            <span class="text on">On</span>
+            <span class="text off">Off</span>
+        </label>
+    </div>
+
+    <!-- Conteneur vidéo, caché par défaut -->
+    <div class="video-container" id="videoContainer" style="display: none;">
+        <video id="mainVideo" class="background-video" muted controls>
             <source src="videos/video1.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la balise vidéo.
         </video>
     </div>
 
     <!-- Contenu des choix (invisible au début) -->
-    <div id="choices">
+    <div id="choices" style="display: none;">
         <button class="btn" onclick="makeChoice('breakfast')">Prendre un petit déjeuner</button>
         <button class="btn" onclick="makeChoice('skip_breakfast')">Aller directement en cours</button>
     </div>
@@ -26,7 +37,22 @@
     <!-- Script pour gérer les vidéos et les choix -->
     <script>
         const video = document.getElementById("mainVideo");
+        const videoContainer = document.getElementById("videoContainer");
         const choicesDiv = document.getElementById("choices");
+        const toggleSwitch = document.getElementById("toggleSwitch");
+        const onOffSwitchContainer = document.getElementById("onOffSwitchContainer");
+
+        // Gérer l'état du bouton ON/OFF
+        toggleSwitch.addEventListener('change', function () {
+            if (toggleSwitch.checked) {
+                videoContainer.style.display = "block"; // Afficher le conteneur vidéo
+                video.play(); // Lancer la vidéo
+                onOffSwitchContainer.style.display = "none"; // Masquer le bouton ON/OFF
+            } else {
+                videoContainer.style.display = "none"; // Masquer le conteneur vidéo
+                video.pause(); // Mettre en pause la vidéo
+            }
+        });
 
         // Afficher les choix quand la vidéo se termine
         video.addEventListener('ended', (event) => {
@@ -46,12 +72,13 @@
                 video.src = "videos/video_skip_breakfast.mp4";
             }
             video.play();
-            video.onended = function() {
+            video.onended = function () {
                 video.src = "videos/video2.mp4"; // Continuer avec la vidéo principale
                 video.play();
             };
         }
     </script>
+
 </body>
 
 </html>
