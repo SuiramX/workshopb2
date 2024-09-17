@@ -134,11 +134,40 @@ p {
   margin: 0 auto;
 }
 
-.groupe-section h3 {
+.Marius {
+  width: 30%;
+  height: 10%;
+  margin: 0 auto;
+}
+
+/* Centering the entire profile section */
+.profile {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 50px;
-  color: red;
+  /* Horizontally center the items */
+  margin: 20px 0;
+}
+
+/* Centering the text in each profile */
+.profile p {
+  margin: 0;
+  line-height: 1.5;
+  text-align: center;
+  /* Center the text */
+}
+
+/* Centering the images within the profile section */
+.photo {
+  width: 150px;
+  height: auto;
+  margin-right: 20px;
+  border-radius: 8px;
+  /* Optional: Add some rounding to the image corners */
+}
+
+#groupe {
+  text-align: center;
 }
 
 /* Footer */
