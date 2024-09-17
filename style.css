@@ -110,22 +110,25 @@ p {
   z-index: 2;
 }
 
+.collaborateurs {
+  color: #ff6961;
+}
+
 .about-section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
 }
 
-.about-section p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
 .groupe-section {
   font-size: 2em;
   margin-bottom: 20px;
-  color: red;
+  color: #ff6961
+}
+
+.groupe-section p {
+  font-size: 1em;
+  margin-bottom: 30px;
+  color: #191815;
 }
 
 .logo {
@@ -178,6 +181,16 @@ p {
   width: 100%;
   position: relative;
   bottom: 0;
+}
+
+h2 {
+  text-align: center;
+}
+
+
+
+h3 {
+  text-align: center;
 }
 
 /* Styles spécifiques à play.html */
