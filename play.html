@@ -5,23 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Play</title>
+    <title>Journée d'un étudiant - Play</title>
 </head>
 
 <body>
-    <!-- Vidéo de fond -->
+    <!-- Conteneur vidéo -->
     <div class="video-container">
-        <video autoplay muted loop class="background-video">
-            <source src="videos/IMG_8877.mp4" type="video/mp4">
+        <video id="mainVideo" class="background-video" autoplay muted controls>
+            <source src="videos/video1.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la balise vidéo.
         </video>
     </div>
 
-    <!-- Contenu affiché au-dessus de la vidéo -->
-    <div class="content">
-        <button class="btn">Bouton 1</button>
-        <button class="btn">Bouton 2</button>
+    <!-- Contenu des choix (invisible au début) -->
+    <div id="choices">
+        <button class="btn" onclick="makeChoice('breakfast')">Prendre un petit déjeuner</button>
+        <button class="btn" onclick="makeChoice('skip_breakfast')">Aller directement en cours</button>
     </div>
+
+    <!-- Script pour gérer les vidéos et les choix -->
+    <script>
+        const video = document.getElementById("mainVideo");
+        const choicesDiv = document.getElementById("choices");
+
+        // Afficher les choix quand la vidéo se termine
+        video.addEventListener('ended', (event) => {
+            showChoices();
+        });
+
+        function showChoices() {
+            choicesDiv.style.display = "block"; // Afficher les boutons de choix
+        }
+
+        // Gérer le choix de l'utilisateur
+        function makeChoice(choice) {
+            choicesDiv.style.display = "none"; // Cacher les boutons après le choix
+            if (choice === 'breakfast') {
+                video.src = "videos/video_breakfast.mp4";
+            } else if (choice === 'skip_breakfast') {
+                video.src = "videos/video_skip_breakfast.mp4";
+            }
+            video.play();
+            video.onended = function() {
+                video.src = "videos/video2.mp4"; // Continuer avec la vidéo principale
+                video.play();
+            };
+        }
+    </script>
 </body>
 
 </html>
