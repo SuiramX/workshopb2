@@ -47,7 +47,10 @@
             if (toggleSwitch.checked) {
                 videoContainer.style.display = "block"; // Afficher le conteneur vidéo
                 video.play(); // Lancer la vidéo
-                onOffSwitchContainer.style.display = "none"; // Masquer le bouton ON/OFF
+                // Attendre une seconde avant de masquer le bouton ON/OFF
+                setTimeout(function () {
+                    onOffSwitchContainer.style.display = "none"; // Masquer le bouton ON/OFF
+                }, 1000); // 1000 ms = 1 seconde
             } else {
                 videoContainer.style.display = "none"; // Masquer le conteneur vidéo
                 video.pause(); // Mettre en pause la vidéo
