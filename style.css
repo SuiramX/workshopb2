@@ -1,12 +1,15 @@
 /* Styles communs à toutes les pages */
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   box-sizing: border-box;
 }
 
-h1, h2, p {
+h1,
+h2,
+p {
   margin: 0;
   padding: 0;
 }
@@ -40,7 +43,8 @@ h1, h2, p {
 .image-container {
   position: relative;
   width: 100%;
-  height: 100vh; /* Hauteur de la fenêtre d'affichage */
+  height: 100vh;
+  /* Hauteur de la fenêtre d'affichage */
   overflow: hidden;
 }
 
@@ -51,10 +55,13 @@ h1, h2, p {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Assure que l'image garde ses proportions et n'est pas rognée */
-  object-position: center; /* Centre l'image dans le conteneur */
+  object-fit: contain;
+  /* Assure que l'image garde ses proportions et n'est pas rognée */
+  object-position: center;
+  /* Centre l'image dans le conteneur */
   z-index: 1;
-  background-color: black; /* Ajout d'un fond noir pour les barres latérales si l'image ne couvre pas tout l'écran */
+  background-color: black;
+  /* Ajout d'un fond noir pour les barres latérales si l'image ne couvre pas tout l'écran */
 }
 
 
@@ -115,12 +122,30 @@ h1, h2, p {
   margin: 0 auto;
 }
 
+.groupe-section {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: red;
+}
+
+.logo {
+  width: 10%;
+  height: 10%;
+  margin: 0 auto;
+}
+
+.groupe-section h3 {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  color: red;
+}
+
 /* Footer */
 .footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 20px;
   width: 100%;
   position: relative;
   bottom: 0;
@@ -132,9 +157,11 @@ h1, h2, p {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* Pour une vidéo en format 16:9, qui est le format le plus courant */
+  padding-bottom: 56.25%;
+  /* Pour une vidéo en format 16:9, qui est le format le plus courant */
   overflow: hidden;
-  background-color: black; /* Pour ajouter un fond noir si la vidéo ne se charge pas */
+  background-color: black;
+  /* Pour ajouter un fond noir si la vidéo ne se charge pas */
 }
 
 .background-video {
@@ -143,7 +170,8 @@ h1, h2, p {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Pour que la vidéo couvre tout l'écran sans être étirée */
+  object-fit: cover;
+  /* Pour que la vidéo couvre tout l'écran sans être étirée */
 }
 
 
@@ -169,16 +197,22 @@ h1, h2, p {
 .btn:hover {
   background-color: rgba(0, 0, 0, 0.7);
 }
+
 #choices {
-  display: none; /* Par défaut, les choix sont cachés */
+  display: none;
+  /* Par défaut, les choix sont cachés */
   position: absolute;
-  bottom: 20%; /* Positionner les choix par-dessus la vidéo */
+  bottom: 20%;
+  /* Positionner les choix par-dessus la vidéo */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.5); /* Arrière-plan semi-transparent pour s'harmoniser avec la vidéo */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Arrière-plan semi-transparent pour s'harmoniser avec la vidéo */
   padding: 20px;
-  border-radius: 10px; /* Coins arrondis pour un effet plus esthétique */
-  z-index: 10; /* Assurer que les boutons sont au-dessus de la vidéo */
+  border-radius: 10px;
+  /* Coins arrondis pour un effet plus esthétique */
+  z-index: 10;
+  /* Assurer que les boutons sont au-dessus de la vidéo */
   text-align: center;
 }
 
@@ -186,7 +220,8 @@ h1, h2, p {
   margin: 10px;
   padding: 10px 20px;
   color: white;
-  background-color: #04AA6D; /* La couleur du bouton */
+  background-color: #04AA6D;
+  /* La couleur du bouton */
   border: none;
   cursor: pointer;
   font-size: 1em;
@@ -195,14 +230,19 @@ h1, h2, p {
 #choices .btn:hover {
   background-color: #03a060;
 }
+
 @media (max-width: 600px) {
   #choices {
-    bottom: 10%; /* Abaisser les boutons pour qu'ils apparaissent plus bas sur des petits écrans */
-    padding: 10px; /* Réduire le padding pour un rendu plus compact sur mobile */
+    bottom: 10%;
+    /* Abaisser les boutons pour qu'ils apparaissent plus bas sur des petits écrans */
+    padding: 10px;
+    /* Réduire le padding pour un rendu plus compact sur mobile */
   }
 
   #choices .btn {
-    padding: 8px 16px; /* Réduire la taille des boutons sur mobile */
-    font-size: 0.9em;  /* Ajuster la taille de la police pour les petits écrans */
+    padding: 8px 16px;
+    /* Réduire la taille des boutons sur mobile */
+    font-size: 0.9em;
+    /* Ajuster la taille de la police pour les petits écrans */
   }
 }
