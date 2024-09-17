@@ -186,12 +186,12 @@ p {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%;
-  /* Pour une vidéo en format 16:9, qui est le format le plus courant */
+  padding-bottom: 56.25%; /* Pour une vidéo en format 16:9 */
   overflow: hidden;
   background-color: black;
-  /* Pour ajouter un fond noir si la vidéo ne se charge pas */
 }
+
+
 
 .background-video {
   position: absolute;
@@ -227,51 +227,42 @@ p {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-#choices {
-  display: none;
-  /* Par défaut, les choix sont cachés */
+/* Assurer que les choix apparaissent au-dessus de la vidéo */
+.choices {
   position: absolute;
-  bottom: 20%;
-  /* Positionner les choix par-dessus la vidéo */
+  top: 10%; /* Ajuste la position des choix selon les besoins */
   left: 50%;
   transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  /* Arrière-plan semi-transparent pour s'harmoniser avec la vidéo */
+  z-index: 2; /* Plus élevé que la vidéo */
+  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
   padding: 20px;
-  border-radius: 10px;
-  /* Coins arrondis pour un effet plus esthétique */
-  z-index: 10;
-  /* Assurer que les boutons sont au-dessus de la vidéo */
+  border-radius: 10px; /* Coins arrondis */
   text-align: center;
 }
 
-#choices .btn {
+.choices .btn {
   margin: 10px;
   padding: 10px 20px;
   color: white;
   background-color: #04AA6D;
-  /* La couleur du bouton */
   border: none;
   cursor: pointer;
   font-size: 1em;
 }
 
-#choices .btn:hover {
+.choices .btn:hover {
   background-color: #03a060;
 }
 
+/* Adapter les choix pour les petits écrans */
 @media (max-width: 600px) {
-  #choices {
-    bottom: 10%;
-    /* Abaisser les boutons pour qu'ils apparaissent plus bas sur des petits écrans */
+  .choices {
+    top: 20%; /* Ajuster pour petits écrans */
     padding: 10px;
-    /* Réduire le padding pour un rendu plus compact sur mobile */
   }
 
-  #choices .btn {
+  .choices .btn {
     padding: 8px 16px;
-    /* Réduire la taille des boutons sur mobile */
     font-size: 0.9em;
-    /* Ajuster la taille de la police pour les petits écrans */
   }
 }

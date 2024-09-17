@@ -23,29 +23,41 @@
     <!-- Conteneur vidéo, caché par défaut -->
     <div class="video-container" id="videoContainer" style="display: none;">
         <video id="mainVideo" class="background-video" muted controls>
-            <source src="videos/video1.mp4" type="video/mp4">
+            <source src="videos/reveil.mp4" type="video/mp4">
             Votre navigateur ne supporte pas la balise vidéo.
         </video>
     </div>
 
     <!-- Contenu des choix (invisible au début) -->
-    <div id="choices" style="display: none;">
+    <div class="choices" id="choices1" style="display: none;">
         <button class="btn" onclick="makeChoice('velo')">Prendre le vélo</button>
         <button class="btn" onclick="makeChoice('pied')">Aller directement à pied</button>
+    </div>
+    <div class="choices" id="choices2" style="display: none;">
         <button class="btn" onclick="makeChoice('babyfoot')">Faire du babyfoot</button>
         <button class="btn" onclick="makeChoice('cafe')">Aller prendre un café</button>
         <button class="btn" onclick="makeChoice('cours')">Aller directement en cours</button>
+    </div>
+    <div class="choices" id="choices3" style="display: none;">
         <button class="btn" onclick="makeChoice('blender')">Ouvrir le logiciel Blender</button>
         <button class="btn" onclick="makeChoice('vscode')">Ouvrir le logiciel VsCode</button>
+    </div>
+    <div class="choices" id="choices4" style="display: none;">
         <button class="btn" onclick="makeChoice('yanshee')">Jouer avec le robot Yanshee</button>
         <button class="btn" onclick="makeChoice('rvr')">Jouer avec le robot RVR+</button>
+    </div>
+    <div class="choices" id="choices5" style="display: none;">
         <button class="btn" onclick="makeChoice('sandwich')">Manger un sandwich</button>
         <button class="btn" onclick="makeChoice('doggy')">Manger son repas d'hier</button>
+    </div> 
+    <div class="choices" id="choices6" style="display: none;">
         <button class="btn" onclick="makeChoice('amixem')">Regarder Amixem</button>
         <button class="btn" onclick="makeChoice('mk')">Regarder un speedrun de Mario Kart</button>
+    </div> 
+    <div class="choices" id="choices7" style="display: none;">
         <button class="btn" onclick="makeChoice('eco')">Suivre le cours d'économie</button>
         <button class="btn" onclick="makeChoice('math')">Suivre le cours de math</button>
-    </div>
+    </div> 
 
     <!-- Affiche le bouton back en permanence -->
     <div class="back">
@@ -59,14 +71,21 @@
         </button>
     </div>
 
-
     <!-- Script pour gérer les vidéos et les choix -->
     <script>
         const video = document.getElementById("mainVideo");
         const videoContainer = document.getElementById("videoContainer");
-        const choicesDiv = document.getElementById("choices");
         const toggleSwitch = document.getElementById("toggleSwitch");
         const onOffSwitchContainer = document.getElementById("onOffSwitchContainer");
+
+        // Sélectionner tous les choix
+        const choicesDiv1 = document.getElementById("choices1");
+        const choicesDiv2 = document.getElementById("choices2");
+        const choicesDiv3 = document.getElementById("choices3");
+        const choicesDiv4 = document.getElementById("choices4");
+        const choicesDiv5 = document.getElementById("choices5");
+        const choicesDiv6 = document.getElementById("choices6");
+        const choicesDiv7 = document.getElementById("choices7");
 
         // Gérer l'état du bouton ON/OFF
         toggleSwitch.addEventListener('change', function () {
@@ -85,29 +104,177 @@
 
         // Afficher les choix quand la vidéo se termine
         video.addEventListener('ended', (event) => {
-            showChoices();
+            choicesDiv1.style.display = "block"; // Afficher les boutons de choix 1 après la première vidéo
         });
-
-        function showChoices() {
-            choicesDiv.style.display = "block"; // Afficher les boutons de choix
-        }
 
         // Gérer le choix de l'utilisateur
         function makeChoice(choice) {
-            choicesDiv.style.display = "none"; // Cacher les boutons après le choix
-            if (choice === 'breakfast') {
-                video.src = "videos/video_breakfast.mp4";
-            } else if (choice === 'skip_breakfast') {
-                video.src = "videos/video_skip_breakfast.mp4";
-            }
-            video.play();
-            video.onended = function () {
-                video.src = "videos/video2.mp4"; // Continuer avec la vidéo principale
+            hideAllChoices(); // Masquer tous les choix
+
+            // Gérer les différentes vidéos et choix
+            if (choice === 'velo') {
+                video.src = "videos/velo.mp4";
                 video.play();
-            };
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/arrive.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv2.style.display = "block";
+                    };
+                };
+            } else if (choice === 'pied') {
+                video.src = "videos/pied.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/arrive.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv2.style.display = "block";
+                    };
+                };
+            } else if (choice === 'babyfoot') {
+                video.src = "videos/baby.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/ouverturepc.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv3.style.display = "block";
+                    };
+                };
+            } else if (choice === 'cafe') {
+                video.src = "videos/cafe.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/ouverturepc.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv3.style.display = "block";
+                    };
+                };
+            } else if (choice === 'cours') {
+                video.src = "videos/verscours.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/ouverturepc.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv3.style.display = "block";
+                    };
+                };
+            } else if (choice === 'blender') {
+                video.src = "videos/blender.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/mydil.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv4.style.display = "block";
+                    };
+                };
+            } else if (choice === 'vscode') {
+                video.src = "videos/vscode.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/mydil.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv4.style.display = "block";
+                    };
+                };
+            } else if (choice === 'yanshee') {
+                video.src = "videos/yanshee.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/choixmanger.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv5.style.display = "block";
+                    };
+                };
+            } else if (choice === 'rvr') {
+                video.src = "videos/rvr.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/choixmanger.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv5.style.display = "block";
+                    };
+                };
+            } else if (choice === 'sandwich') {
+                video.src = "videos/sandwich.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/choixmanger.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv6.style.display = "block";
+                    };
+                };
+            } else if (choice === 'doggy') {
+                video.src = "videos/doggy.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/choixmanger.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv6.style.display = "block";
+                    };
+                };
+            } else if (choice === 'amixem') {
+                video.src = "videos/amixem.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/choixcours.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv7.style.display = "block";
+                    };
+                };
+            } else if (choice === 'mk') {
+                video.src = "videos/mk.mp4";
+                video.play();
+                video.onended = function () {
+                    hideAllChoices();
+                    video.src = "videos/choixcours.mp4";
+                    video.play();
+                    video.onended = function () {
+                        choicesDiv7.style.display = "block";
+                    };
+                };
+            } else if (choice === 'eco') {
+                video.src = "videos/eco.mp4";
+                video.play();
+            } else if (choice === 'math') {
+                video.src = "videos/math.mp4";
+                video.play();
+            }
+        }
+
+        // Fonction pour masquer tous les choix
+        function hideAllChoices() {
+            choicesDiv1.style.display = "none";
+            choicesDiv2.style.display = "none";
+            choicesDiv3.style.display = "none";
+            choicesDiv4.style.display = "none";
+            choicesDiv5.style.display = "none";
+            choicesDiv6.style.display = "none";
+            choicesDiv7.style.display = "none";
         }
     </script>
-
 </body>
 
 </html>
