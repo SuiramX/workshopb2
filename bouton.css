@@ -90,19 +90,30 @@ input:checked~.text.on {
 
 
 
+.back {
+    position: fixed;
+    /* Fixe le bouton par rapport à la fenêtre d'affichage */
+    top: 10px;
+    /* Distance depuis le haut de l'écran */
+    left: 10px;
+    /* Distance depuis le bord gauche de l'écran */
+    z-index: 1000;
+    /* Assure que le bouton reste au-dessus de tous les autres éléments */
+}
+
 button {
     display: flex;
     height: 3em;
     width: 100px;
     align-items: center;
     justify-content: center;
-    background-color: #eeeeee4b;
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Couleur de fond blanche avec transparence */
     border-radius: 3px;
     letter-spacing: 1px;
     transition: all 0.2s linear;
     cursor: pointer;
     border: none;
-    background: #fff;
 }
 
 button>svg {
@@ -118,6 +129,8 @@ button:hover>svg {
 }
 
 button:hover {
-    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Légère opacité au survol */
+    box-shadow: 9px 9px 33px rgba(209, 209, 209, 0.5), -9px -9px 33px rgba(255, 255, 255, 0.5);
     transform: translateY(-2px);
 }
