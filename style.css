@@ -1,4 +1,3 @@
-/* Styles communs à toutes les pages */
 body,
 html {
   margin: 0;
@@ -14,7 +13,6 @@ p {
   padding: 0;
 }
 
-/* Styles de la navigation */
 .navbar .topnav {
   background-color: #333;
   overflow: hidden;
@@ -39,16 +37,13 @@ p {
   color: white;
 }
 
-/* Styles spécifiques à index.html */
 .image-container {
   position: relative;
   width: 100%;
   height: 100vh;
-  /* Hauteur de la fenêtre d'affichage */
   overflow: hidden;
 }
 
-/* Modification de l'image de fond pour qu'elle soit responsive et ne soit pas rognée */
 .background-image {
   position: absolute;
   top: 0;
@@ -56,12 +51,9 @@ p {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  /* Assure que l'image garde ses proportions et n'est pas rognée */
   object-position: center;
-  /* Centre l'image dans le conteneur */
   z-index: 1;
   background-color: black;
-  /* Ajout d'un fond noir pour les barres latérales si l'image ne couvre pas tout l'écran */
 }
 
 .content {
@@ -100,7 +92,6 @@ p {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* Section "About" */
 .about-section {
   padding: 50px;
   background-color: #f4f4f4;
@@ -142,37 +133,33 @@ p {
   margin: 0 auto;
 }
 
-/* Centering the entire profile section */
 .profile {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* Horizontally center the items */
   margin: 20px 0;
 }
 
-/* Centering the text in each profile */
+
 .profile p {
   margin: 0;
   line-height: 1.5;
   text-align: center;
-  /* Center the text */
 }
 
-/* Centering the images within the profile section */
+
 .photo {
   width: 150px;
   height: auto;
   margin-right: 20px;
   border-radius: 8px;
-  /* Optional: Add some rounding to the image corners */
 }
 
 #groupe {
   text-align: center;
 }
 
-/* Footer */
+
 .footer {
   background-color: #333;
   color: white;
@@ -214,53 +201,52 @@ h3 {
   text-align: center;
 }
 
-/* Assurer que les choix apparaissent au-dessus de la vidéo */
+
 .choices {
   position: absolute;
-  top: 10%; /* Ajuste la position des choix selon les besoins */
+  top: 10%; 
   left: 50%;
   transform: translateX(-50%);
-  z-index: 2; /* Plus élevé que la vidéo */
-  background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+  z-index: 2; 
+  background-color: rgba(0, 0, 0, 0.5); 
   padding: 20px;
-  border-radius: 10px; /* Coins arrondis */
+  border-radius: 10px; 
   text-align: center;
 }
 
 .choices .btn {
   display: inline-block;
-  padding: 12px 24px; /* Augmenter le padding pour une hauteur suffisante */
-  font-size: 1em; /* Taille de texte par défaut */
+  padding: 12px 24px;
+  font-size: 1em; 
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
   cursor: pointer;
-  text-align: center; /* Centre le texte horizontalement */
-  line-height: 1.5; /* Assure que le texte est bien centré verticalement */
-  min-width: 150px; /* Largeur minimale pour éviter les boutons trop petits */
-  height: auto; /* Ajuste automatiquement la hauteur en fonction du contenu */
+  text-align: center; 
+  line-height: 1.5; 
+  min-width: 150px; 
+  height: auto; 
   transition: background-color 0.3s ease, padding 0.3s ease;
 }
 
 .choices .btn:hover {
   background-color: rgba(0, 0, 0, 0.7);
-  padding: 14px 28px; /* Augmenter légèrement le padding au survol pour effet visuel */
+  padding: 14px 28px; 
 }
 
-/* Adapter les choix pour les petits écrans */
+
 @media (max-width: 600px) {
   .choices {
-    top: 20%; /* Ajuster pour petits écrans */
+    top: 20%; 
     padding: 10px;
   }
 
   .choices .btn {
-    font-size: 0.9em; /* Réduire un peu la taille du texte sur petits écrans */
-    padding: 0.7em 1.2em; /* Ajuster le padding pour garder les proportions */
+    font-size: 0.9em; 
+    padding: 0.7em 1.2em; 
   }
 }
 
-/* Add the following styles to make the video full screen in portrait mode on mobile devices */
 
 @media only screen and (max-width: 768px) {
   .video-container {
@@ -271,7 +257,7 @@ h3 {
   }
 }
 
-/* Add the following media query to ensure the video is full screen in landscape mode on mobile devices */
+
 @media only screen and (max-width: 1024px) and (orientation: landscape) {
   .video-container {
     width: 100vw;
