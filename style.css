@@ -20,7 +20,7 @@ p {
 }
 
 .navbar .topnav {
-  background-color: #333;
+  background-color: #4b4237;
   overflow: hidden;
 }
 
@@ -40,9 +40,9 @@ p {
 }
 
 .navbar .topnav a.active {
-  background-color: #FADFA1;
+  background-color: #f6e7cb;
   border-radius: 10%;
-  color: rgb(0, 0, 0);
+  color: #4b4237;
 }
 
 .image-container {
@@ -95,8 +95,8 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  color: #FADFA1;
-  background-color: #fff4ea6c;
+  color: #f6e7cb;
+  background-color: #4b423786;
   text-align: center;
   border-radius: 20px;
 }
@@ -113,19 +113,23 @@ p {
 
 .btn {
   display: inline-block;
-  padding: 10px 20px;
-  background-color: #C96868;
-  color: white;
+  padding: 30px 40px;
+
+  color: #f6e7cb;
   border: none;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1em;
+  font-size: 6em;
 }
 
 .btn:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: #f6e7cb;
+  color: #b85c00;
 }
 
+.about-section p{
+  font-size: 1.5em;
+}
 .about-section {
   padding: 50px;
   background-color: #f4f4f4;
@@ -134,19 +138,16 @@ p {
   z-index: 2;
 }
 
-.collaborateurs {
-  color: #ff6961;
-}
-
 .about-section h2 {
   font-size: 2.5em;
   margin-bottom: 20px;
+  color: #5e5345;
 }
 
 .groupe-section {
   font-size: 2em;
   margin-bottom: 20px;
-  color: #ff6961
+  color : #5e5345;
 }
 
 .groupe-section p {
@@ -304,4 +305,19 @@ h3 {
     width: 100vw;
     height: 100vh;
   }
+}
+
+
+
+.about-section2 {
+  padding: 50px;
+  background-color: #e6e6e6;
+
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.collaborateurs {
+  color: #463e34;
 }
