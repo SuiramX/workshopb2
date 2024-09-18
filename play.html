@@ -200,7 +200,7 @@
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/choixmanger.mp4";
+        video.src = "videos/faim.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -212,7 +212,7 @@
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/choixmanger.mp4";
+        video.src = "videos/faim.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -270,9 +270,11 @@
     } else if (choice === 'eco') {
         video.src = "videos/eco.mp4";
         video.play();
+        hideAllChoices();
     } else if (choice === 'math') {
         video.src = "videos/math.mp4";
         video.play();
+        hideAllChoices();
     }
     }
 
