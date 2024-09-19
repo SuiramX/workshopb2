@@ -10,19 +10,9 @@
 </head>
 
 <body>
-    <!-- Bouton ON/OFF avant de lancer la vidéo -->
-    <div class="onoffswitch" id="onOffSwitchContainer" role="switch" aria-checked="false" aria-labelledby="toggleSwitchLabel">
-        <label class="switch" for="toggleSwitch">
-            <input type="checkbox" id="toggleSwitch" tabindex="1">
-            <span class="slider"></span>
-            <span class="text on" id="toggleSwitchLabel">On</span>
-            <span class="text off" id="toggleSwitchLabel">Off</span>
-        </label>
-    </div>
-
-    <!-- Conteneur vidéo, caché par défaut -->
-    <div class="video-container" id="videoContainer" style="display: none;" aria-live="polite" aria-atomic="true">
-        <video id="mainVideo" class="background-video" muted playsinline aria-labelledby="videoTitle">
+    <!-- Conteneur vidéo, visible dès le départ -->
+    <div class="video-container" id="videoContainer" aria-live="polite" aria-atomic="true">
+        <video id="mainVideo" class="background-video" muted playsinline autoplay aria-labelledby="videoTitle">
             <source src="videos/reveil.mp4" type="video/mp4">
             <track src="subtitles/reveil-fr.vtt" kind="subtitles" srclang="fr" label="Français">
             <p id="videoTitle">Votre navigateur ne supporte pas la balise vidéo.</p>
@@ -73,9 +63,6 @@
     <!-- Script pour gérer les vidéos et les choix -->
     <script>
         const video = document.getElementById("mainVideo");
-        const videoContainer = document.getElementById("videoContainer");
-        const toggleSwitch = document.getElementById("toggleSwitch");
-        const onOffSwitchContainer = document.getElementById("onOffSwitchContainer");
 
         // Sélectionner tous les choix
         const choicesDiv1 = document.getElementById("choices1");
@@ -85,22 +72,6 @@
         const choicesDiv5 = document.getElementById("choices5");
         const choicesDiv6 = document.getElementById("choices6");
         const choicesDiv7 = document.getElementById("choices7");
-
-        // Gérer l'état du bouton ON/OFF
-        toggleSwitch.addEventListener('change', function () {
-            if (toggleSwitch.checked) {
-                videoContainer.style.display = "block"; // Afficher le conteneur vidéo
-                video.muted = false;
-                video.play(); // Lancer la vidéo
-                // Attendre une seconde avant de masquer le bouton ON/OFF
-                setTimeout(function () {
-                    onOffSwitchContainer.style.display = "none"; // Masquer le bouton ON/OFF
-                }, 1000); // 1000 ms = 1 seconde
-            } else {
-                videoContainer.style.display = "none"; // Masquer le conteneur vidéo
-                video.pause(); // Mettre en pause la vidéo
-            }
-        });
 
         // Afficher les choix quand la vidéo se termine
         video.addEventListener('ended', () => {
