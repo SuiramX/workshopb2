@@ -22,8 +22,7 @@
 <!-- Conteneur vidéo, caché par défaut -->
 <div class="video-container" id="videoContainer" style="display: none;" aria-live="polite" aria-atomic="true">
     <video id="mainVideo" class="background-video" muted controls aria-labelledby="videoTitle">
-    <source src="videos/reveil.mp4" type="video/mp4">
-    <track src="subtitles/reveil-fr.vtt" kind="subtitles" srclang="fr" label="Français">
+    <source src="../videos/reveil.mp4" type="video/mp4">
     <p id="videoTitle">Votre navigateur ne supporte pas la balise vidéo.</p>
     </video>
 </div>
@@ -112,11 +111,11 @@
 
       // Gérer les différentes vidéos et choix
     if (choice === 'velo') {
-        video.src = "videos/velo.mp4";
+        video.src = "../videos/velo.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/arrive.mp4";
+        video.src = "../videos/arrive.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -124,11 +123,11 @@
         };
         };
     } else if (choice === 'pied') {
-        video.src = "videos/pied.mp4";
+        video.src = "../videos/pied.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/arrive.mp4";
+        video.src = "../videos/arrive.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -136,11 +135,11 @@
         };
         };
     } else if (choice === 'babyfoot') {
-        video.src = "videos/baby.mp4";
+        video.src = "../videos/baby.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/ouverturepc.mp4";
+        video.src = "../videos/ouverturepc.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -148,11 +147,11 @@
         };
         };
     } else if (choice === 'cafe') {
-        video.src = "videos/cafe.mp4";
+        video.src = "../videos/cafe.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/ouverturepc.mp4";
+        video.src = "../videos/ouverturepc.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -160,11 +159,11 @@
         };
         };
     } else if (choice === 'cours') {
-        video.src = "videos/verscours.mp4";
+        video.src = "../videos/verscours.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/ouverturepc.mp4";
+        video.src = "../videos/ouverturepc.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -172,11 +171,11 @@
         };
         };
     } else if (choice === 'blender') {
-        video.src = "videos/blender.mp4";
+        video.src = "../videos/blender.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/mydil.mp4";
+        video.src = "../videos/mydil.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -184,11 +183,11 @@
         };
         };
     } else if (choice === 'vscode') {
-        video.src = "videos/vscode.mp4";
+        video.src = "../videos/vscode.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/mydil.mp4";
+        video.src = "../videos/mydil.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -196,11 +195,11 @@
         };
         };
     } else if (choice === 'yanshee') {
-        video.src = "videos/robotyanshee.mp4";
+        video.src = "../videos/robotyanshee.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/faim.mp4";
+        video.src = "../videos/faim.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -208,11 +207,11 @@
         };
         };
     } else if (choice === 'rvr') {
-        video.src = "videos/robotroule.mp4";
+        video.src = "../videos/robotroule.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/faim.mp4";
+        video.src = "../videos/faim.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -220,11 +219,11 @@
         };
         };
     } else if (choice === 'sandwich') {
-        video.src = "videos/sandwich.mp4";
+        video.src = "../videos/sandwich.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/choixmanger.mp4";
+        video.src = "../videos/choixmanger.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -232,11 +231,11 @@
         };
         };
     } else if (choice === 'doggy') {
-        video.src = "videos/doggybag.mp4";
+        video.src = "../videos/doggybag.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/choixmanger.mp4";
+        video.src = "../videos/choixmanger.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -244,11 +243,11 @@
         };
         };
     } else if (choice === 'amixem') {
-        video.src = "videos/amixem.mp4";
+        video.src = "../videos/amixem.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/choixcours.mp4";
+        video.src = "../videos/choixcours.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -256,11 +255,11 @@
         };
         };
     } else if (choice === 'mk') {
-        video.src = "videos/mk.mp4";
+        video.src = "../videos/mk.mp4";
         video.play();
         video.onended = function () {
         hideAllChoices();
-        video.src = "videos/choixcours.mp4";
+        video.src = "../videos/choixcours.mp4";
         video.play();
         video.onended = function () {
             hideAllChoices();
@@ -268,11 +267,11 @@
         };
         };
     } else if (choice === 'eco') {
-        video.src = "videos/eco.mp4";
+        video.src = "../videos/eco.mp4";
         video.play();
         hideAllChoices();
     } else if (choice === 'math') {
-        video.src = "videos/math.mp4";
+        video.src = "../videos/math.mp4";
         video.play();
         hideAllChoices();
     }
