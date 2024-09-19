@@ -12,11 +12,16 @@
 <body>
     <!-- Conteneur vidéo, visible dès le départ -->
     <div class="video-container" id="videoContainer" aria-live="polite" aria-atomic="true">
-        <video id="mainVideo" class="background-video" muted playsinline autoplay aria-labelledby="videoTitle">
+        <video id="mainVideo" class="background-video" muted playsinline aria-labelledby="videoTitle">
             <source src="videos/reveil.mp4" type="video/mp4">
             <track src="subtitles/reveil-fr.vtt" kind="subtitles" srclang="fr" label="Français">
             <p id="videoTitle">Votre navigateur ne supporte pas la balise vidéo.</p>
         </video>
+    </div>
+
+    <!-- Message pour activer le son -->
+    <div id="clickMessage" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.8); color: white; display: flex; justify-content: center; align-items: center; font-size: 24px;">
+        <p>Cliquez pour jouer la vidéo avec le son</p>
     </div>
 
     <!-- Contenu des choix (invisible au début) -->
@@ -63,6 +68,17 @@
     <!-- Script pour gérer les vidéos et les choix -->
     <script>
         const video = document.getElementById("mainVideo");
+        const clickMessage = document.getElementById("clickMessage");
+
+        // Initialement, la vidéo ne joue pas
+        video.pause();
+        
+        // Au clic sur l'écran, on active le son et on fait disparaître le message
+        document.body.addEventListener('click', () => {
+            video.muted = false; // Activer le son
+            clickMessage.style.display = "none"; // Masquer le message
+            video.play(); // Reprendre la vidéo
+        }, { once: true });  // Empêcher plusieurs clics
 
         // Sélectionner tous les choix
         const choicesDiv1 = document.getElementById("choices1");
@@ -78,9 +94,9 @@
             choicesDiv1.style.display = "block"; // Afficher les boutons de choix 1 après la première vidéo
         });
 
-// Gérer le choix de l'utilisateur
-function makeChoice(choice) {
-    hideAllChoices(); // Masquer tous les choix
+        // Gérer le choix de l'utilisateur
+        function makeChoice(choice) {
+            hideAllChoices(); // Masquer tous les choix
 
     // Gérer les différentes vidéos et choix
     if (choice === 'velo') {
